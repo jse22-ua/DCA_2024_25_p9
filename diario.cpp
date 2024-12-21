@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -9,7 +11,21 @@ void menu_principal(){
     cout << "3. Salir" << endl;
 }
 
+string obtener_fecha(){
+    time_t t = time(0);
+    struct tm * now = localtime(&t);
+    int year = now->tm_year + 1900;
+    int month = now->tm_mon + 1;
+    int day = now->tm_mday;
+
+    string fecha = to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+    return fecha;
+}
+
 bool escribir_dia(){
+    string fecha = obtener_fecha();
+    
+
     return true;
 }
 

@@ -36,10 +36,15 @@ bool escribir_dia(){
 
     archivo << fecha << endl;
     cout << "Escribe tu día: " << endl;
-    string entrada;
     cin.ignore();
-    getline(cin, entrada);
-    archivo << entrada << endl;
+    while(true){
+        string entrada;
+        getline(cin, entrada);
+        if(entrada.empty()){
+            break;
+        }
+        archivo << entrada << endl;
+    }
     cout << "Día guardado correctamente" << endl;
     archivo.close();
     return true;

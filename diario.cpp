@@ -2,13 +2,16 @@
 
 using namespace std;
 
-int main(){
+void menu_principal(){
     cout << "¡Bienvenido a tu diario personal!" << endl;
     cout << "¿Qué deseas hacer?" << endl;
     cout << "1. Escribir un nuevo día" << endl;
     cout << "2. Leer un día" << endl;
     cout << "3. Salir" << endl;
+}
 
+void elegir_opcion(){
+    cout << "Elige una opción: ";
     int opcion;
     cin >> opcion;
 
@@ -26,4 +29,13 @@ int main(){
             cout << "Opción inválida" << endl;
             break;
     }
+}
+
+int main(){
+
+    menu_principal();
+    elegir_opcion();
+
+    return 0;
+    
 }

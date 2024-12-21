@@ -3,7 +3,6 @@
 using namespace std;
 
 void menu_principal(){
-    cout << "¡Bienvenido a tu diario personal!" << endl;
     cout << "¿Qué deseas hacer?" << endl;
     cout << "1. Escribir un nuevo día" << endl;
     cout << "2. Leer un día" << endl;
@@ -11,29 +10,32 @@ void menu_principal(){
 }
 
 void elegir_opcion(){
-    cout << "Elige una opción: ";
     int opcion;
-    cin >> opcion;
 
-    switch(opcion){
-        case 1:
-            cout << "Escribir un nuevo día" << endl;
-            break;
-        case 2:
-            cout << "Leer un día" << endl;
-            break;
-        case 3:
-            cout << "Salir" << endl;
-            break;
-        default:
-            cout << "Opción inválida" << endl;
-            break;
-    }
+    do{
+        menu_principal();
+        cout << "Elige una opción: ";
+        cin >> opcion;
+        switch(opcion){
+            case 1:
+                cout << "Escribir un nuevo día" << endl;
+                break;
+            case 2:
+                cout << "Leer un día" << endl;
+                break;
+            case 3:
+                cout << "Salir" << endl;
+                break;
+            default:
+                cout << "Opción inválida" << endl;
+                break;
+        }
+    }while(opcion != 3);
 }
 
 int main(){
 
-    menu_principal();
+    cout << "¡Bienvenido a tu diario personal!" << endl;
     elegir_opcion();
 
     return 0;

@@ -11,6 +11,7 @@ void menu_principal(){
     cout << "3. Salir" << endl;
 }
 
+
 string obtener_fecha(){
     time_t t = time(0);
     struct tm * now = localtime(&t);
@@ -50,6 +51,39 @@ bool escribir_dia(){
     return true;
 }
 
+bool leer_dia(){
+    string fecha;
+    cout << "Ingresa la fecha del día que deseas leer (dd-mm-yyyy): ";
+    cin >> fecha;
+
+    if(fecha.size() != 10 || fecha[2] != '-' || fecha[5] != '-'){
+        cout << "El formato de la fecha es incorrecto" << endl;
+        cout << "El formato que deberia tener es dd-mm-yyyy" << endl;
+        return false;
+    }
+    
+    cout << endl;
+
+
+    ifstream archivo;
+    archivo.open("entradas/" + fecha + ".txt");
+
+    if(!archivo.is_open()){
+        cout << "La fecha es incorrecta" << endl;
+        cout << "No hay registros de ese día" << endl;
+        return false;
+    }
+
+    string linea;
+    while(getline(archivo, linea)){
+        cout << linea << endl;
+    }
+
+    archivo.close();
+    cout << endl;
+    return true;
+}
+
 void elegir_opcion(){
     int opcion;
 
@@ -62,7 +96,7 @@ void elegir_opcion(){
                 escribir_dia();
                 break;
             case 2:
-                cout << "Leer un día" << endl;
+                leer_dia();
                 break;
             case 3:
                 cout << "Salir" << endl;

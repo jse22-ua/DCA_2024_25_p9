@@ -9,6 +9,10 @@ void menu_principal(){
     cout << "3. Salir" << endl;
 }
 
+bool escribir_dia(){
+    return true;
+}
+
 void elegir_opcion(){
     int opcion;
 
@@ -18,7 +22,7 @@ void elegir_opcion(){
         cin >> opcion;
         switch(opcion){
             case 1:
-                cout << "Escribir un nuevo día" << endl;
+                escribir_dia();
                 break;
             case 2:
                 cout << "Leer un día" << endl;

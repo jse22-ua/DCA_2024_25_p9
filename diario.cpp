@@ -14,7 +14,7 @@ void menu_principal(){
 string obtener_fecha(){
     time_t t = time(0);
     struct tm * now = localtime(&t);
-    int year = now->tm_year + 1900;
+    int year = now->tm_year;
     int month = now->tm_mon + 1;
     int day = now->tm_mday;
 
@@ -24,8 +24,24 @@ string obtener_fecha(){
 
 bool escribir_dia(){
     string fecha = obtener_fecha();
-    
+    cout << fecha << endl;
 
+    ofstream archivo;
+    archivo.open("entradas/" + fecha + ".txt");
+
+    if(!archivo.is_open()){
+        cout << "Error al abrir el archivo" << endl;
+        return false;
+    }
+
+    archivo << fecha << endl;
+    cout << "Escribe tu día: " << endl;
+    string entrada;
+    cin.ignore();
+    getline(cin, entrada);
+    archivo << entrada << endl;
+    cout << "Día guardado correctamente" << endl;
+    archivo.close();
     return true;
 }
 

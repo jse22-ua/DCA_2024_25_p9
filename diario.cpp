@@ -14,7 +14,7 @@ void menu_principal(){
 string obtener_fecha(){
     time_t t = time(0);
     struct tm * now = localtime(&t);
-    int year = now->tm_year;
+    int year = now->tm_year + 1900;
     int month = now->tm_mon + 1;
     int day = now->tm_mday;
 
